@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EXCELLENT JEWELLERY — 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.06em',
+            tighter2: '-0.05em',
+          },
+          animation: {
+            'fade-up': 'fadeUp 1s ease-out forwards',
+            'fade-in': 'fadeIn 1.5s ease-out forwards',
+            'scale-in': 'scaleIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'marquee': 'marquee 40s linear infinite',
+            'shimmer': 'shimmer 3s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(60px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            scaleIn: {
+              '0%': { opacity: '0', transform: 'scale(1.1)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            shimmer: {
+              '0%, 100%': { opacity: '0.3' },
+              '50%': { opacity: '1' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #0a0a0a;
+      color: #f5f5f0;
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    .grain { position: relative; }
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(1.08);
+      transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-scale.is-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .text-stroke {
+      -webkit-text-stroke: 1px rgba(245, 245, 240, 0.4);
+      color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent py-6">
+    <div class="flex items-center justify-between px-6 md:px-12 lg:px-16">
+      <button id="menu-open" class="flex flex-col gap-1 lg:hidden" aria-label="Меню">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      </button>
+
+      <nav class="hidden lg:flex items-center gap-10">
+        <a href="#коллекции" class="text-[13px] font-semibold tracking-wide text-white/80 uppercase hover:text-white transition-colors duration-300">Коллекции</a>
+        <a href="#новое-поступление" class="text-[13px] font-semibold tracking-wide text-white/80 uppercase hover:text-white transition-colors duration-300">Новое поступление</a>
+      </nav>
+
+      <a href="#top" class="text-white font-black text-lg md:text-xl leading-none select-none" style="letter-spacing:-0.05em">
+        EXCELLENT<br>JEWELLERY
+      </a>
+
+      <div class="flex items-center gap-5">
+        <nav class="hidden lg:flex items-center gap-10">
+          <a href="#категории" class="text-[13px] font-semibold tracking-wide text-white/80 uppercase hover:text-white transition-colors duration-300">Категории</a>
+          <a href="#контакты" class="text-[13px] font-semibold tracking-wide text-white/80 uppercase hover:text-white transition-colors duration-300">Контакты</a>
+        </nav>
+        <button aria-label="Поиск" class="text-white/80 hover:text-white transition-colors">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button aria-label="Корзина" class="text-white/80 hover:text-white transition-colors relative">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="absolute -top-1.5 -right-1.5 bg-white text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#0a0a0a] transition-transform duration-500 lg:hidden translate-x-full">
+    <div class="flex items-center justify-between px-6 py-6 border-b border-white/10">
+      <span class="text-white font-black text-lg" style="letter-spacing:-0.05em">МЕНЮ</span>
+      <button id="menu-close" aria-label="Закрыть">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <nav class="flex flex-col px-6 pt-12 gap-8">
+      <a href="#коллекции" class="mobile-link text-white font-bold text-3xl hover:text-white/50 transition-colors" style="letter-spacing:-0.05em">Коллекции</a>
+      <a href="#новое-поступление" class="mobile-link text-white font-bold text-3xl hover:text-white/50 transition-colors" style="letter-spacing:-0.05em">Новое поступление</a>
+      <a href="#категории" class="mobile-link text-white font-bold text-3xl hover:text-white/50 transition-colors" style="letter-spacing:-0.05em">Категории</a>
+      <a href="#контакты" class="mobile-link text-white font-bold text-3xl hover:text-white/50 transition-colors" style="letter-spacing:-0.05em">Контакты</a>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <section id="top" class="relative w-full h-screen min-h-[700px] overflow-hidden grain">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.pexels.com/photos/7895502/pexels-photo-7895502.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        alt=""
+        class="w-full h-full object-cover object-center scale-105 animate-scale-in"
+        style="filter:grayscale(100%) contrast(1.15) brightness(0.85)"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/80"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent"></div>
+    </div>
+    <div class="relative h-full flex flex-col justify-end pb-20 md:pb-28 px-6 md:px-12 lg:px-20">
+      <div class="max-w-5xl">
+        <div class="overflow-hidden mb-4">
+          <p class="text-white/60 text-sm font-semibold tracking-[0.3em] uppercase animate-fade-up">Коллекция 2026</p>
+        </div>
+        <h1 class="text-white font-black leading-[0.85] animate-fade-up" style="font-size:clamp(3rem,11vw,10rem);letter-spacing:-0.06em;animation-delay:0.15s;opacity:0">
+          ИСКУССТВО<br><span class="text-stroke">В ДЕТАЛЯХ</span>
+        </h1>
+        <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 animate-fade-up" style="animation-delay:0.4s;opacity:0">
+          <a href="#новое-поступление" class="group bg-white text-black px-8 py-4 font-bold text-sm tracking-wide uppercase hover:bg-white/90 transition-all duration-300 flex items-center gap-3">
+            Смотреть коллекцию
+            <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+          <p class="text-white/70 text-base md:text-lg max-w-md font-medium leading-snug">
+            Ювелирные украшения, созданные для тех, кто понимает ценность каждого мгновения
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-8 right-8 md:right-16 flex flex-col items-center gap-2">
+      <span class="text-white/40 text-[11px] font-semibold tracking-[0.2em] uppercase rotate-180" style="writing-mode:vertical-rl">Scroll</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white/40 animate-bounce"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="bg-[#0a0a0a] py-5 border-y border-white/5 overflow-hidden">
+    <div class="flex animate-marquee whitespace-nowrap">
+      <span class="text-white/30 font-black text-2xl md:text-3xl mx-8 flex items-center gap-8" style="letter-spacing:-0.04em">НОВОЕ ПОСТУПЛЕНИЕ<span class="text-white/10">✦</span></span>
+      <span class="text-white/30 font-black text-2xl md:text-3xl mx-8 flex items-center gap-8" style="letter-spacing:-0.04em">ЗОЛОТО<span class="text-white/10">✦</span></span>
+      <span class="text-white/30 font-black text-2xl md:text-3xl mx-8 flex items-center gap-8" style="letter-spacing:-0.04em">СЕРЕБРО<span class="text-white/10">✦</span></span>
+      <span class="text-white/30 font-black text-2xl md:text-3xl mx-8 flex items-center gap-8" style="letter-spacing:-0.04em">БРИЛЛИАНТЫ<span class="text-white/10">✦</span></span>
+      <span class="text-white/30 font-black text-2xl md:text-3xl mx-8 flex items-center gap-8" style="letter-spacing:-0.04em">РУЧНАЯ РАБОТА<span class="text-white/10">✦</span></span>
+      <span class="text-white/30 font-black text-2xl md:text-3xl mx-8 flex items-center gap-8" style="letter-spacing:-0.04em">ПРЕМИУМ КАЧЕСТВО<span class="text-white/10">✦</span></span>
+      <span class="text-white/30 font-black text-2xl md:text-3xl mx-8 flex items-center gap-8" style="letter-spacing:-0.04em">НОВОЕ ПОСТУПЛЕНИЕ<span class="text-white/10">✦</span></span>
+      <span class="text-white/30 font-black text-2xl md:text-3xl mx-8 flex items-center gap-8" style="letter-spacing:-0.04em">ЗОЛОТО<span class="text-white/10">✦</span></span>
+      <span class="text-white/30 font-black text-2xl md:text-3xl mx-8 flex items-center gap-8" style="letter-spacing:-0.04em">СЕРЕБРО<span class="text-white/10">✦</span></span>
+      <span class="text-white/30 font-black text-2xl md:text-3xl mx-8 flex items-center gap-8" style="letter-spacing:-0.04em">БРИЛЛИАНТЫ<span class="text-white/10">✦</span></span>
+      <span class="text-white/30 font-black text-2xl md:text-3xl mx-8 flex items-center gap-8" style="letter-spacing:-0.04em">РУЧНАЯ РАБОТА<span class="text-white/10">✦</span></span>
+      <span class="text-white/30 font-black text-2xl md:text-3xl mx-8 flex items-center gap-8" style="letter-spacing:-0.04em">ПРЕМИУМ КАЧЕСТВО<span class="text-white/10">✦</span></span>
+    </div>
+  </div>
+
+  <!-- New Arrivals -->
+  <section id="новое-поступление" class="relative bg-[#f5f5f0] py-20 md:py-32">
+    <div class="px-6 md:px-12 lg:px-20">
+      <div class="flex items-end justify-between mb-12 md:mb-16 reveal">
+        <div>
+          <p class="text-black/40 text-sm font-semibold tracking-[0.25em] uppercase mb-3">Свежие arrivals</p>
+          <h2 class="text-black font-black leading-none" style="font-size:clamp(2.5rem,6vw,5rem);letter-spacing:-0.05em">НОВОЕ ПОСТУПЛЕНИЕ</h2>
+        </div>
+        <div class="hidden md:flex items-center gap-3">
+          <button onclick="scrollStrip('arrivals',-1)" class="w-12 h-12 border border-black/15 flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300" aria-label="Назад">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button onclick="scrollStrip('arrivals',1)" class="w-12 h-12 border border-black/15 flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300" aria-label="Вперёд">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="arrivals" class="flex gap-6 overflow-x-auto scrollbar-hide -mx-6 px-6 pb-4 snap-x snap-mandatory">
+        <article class="product-card group flex-shrink-0 w-[260px] md:w-[320px] snap-start reveal" style="transition-delay:0ms">
+          <div class="relative aspect-square bg-white overflow-hidden mb-5">
+            <img src="https://images.pexels.com/photos/35961143/pexels-photo-35961143.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Серьга Aurora" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="filter:grayscale(100%) contrast(1.05)"/>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black text-white py-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button class="text-xs font-bold tracking-wide uppercase w-full text-left">В корзину →</button>
+            </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div>
+              <p class="text-black/40 text-xs font-semibold uppercase tracking-wider mb-1">Серьги</p>
+              <h3 class="text-black font-bold text-lg" style="letter-spacing:-0.05em">Серьга Aurora</h3>
+            </div>
+            <p class="text-black font-bold text-sm whitespace-nowrap">₽ 18 900</p>
+          </div>
+        </article>
+        <article class="product-card group flex-shrink-0 w-[260px] md:w-[320px] snap-start reveal" style="transition-delay:80ms">
+          <div class="relative aspect-square bg-white overflow-hidden mb-5">
+            <img src="https://images.pexels.com/photos/32786091/pexels-photo-32786091.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Кольцо Eclipse" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="filter:grayscale(100%) contrast(1.05)"/>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black text-white py-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button class="text-xs font-bold tracking-wide uppercase w-full text-left">В корзину →</button>
+            </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div>
+              <p class="text-black/40 text-xs font-semibold uppercase tracking-wider mb-1">Кольца</p>
+              <h3 class="text-black font-bold text-lg" style="letter-spacing:-0.05em">Кольцо Eclipse</h3>
+            </div>
+            <p class="text-black font-bold text-sm whitespace-nowrap">₽ 24 500</p>
+          </div>
+        </article>
+        <article class="product-card group flex-shrink-0 w-[260px] md:w-[320px] snap-start reveal" style="transition-delay:160ms">
+          <div class="relative aspect-square bg-white overflow-hidden mb-5">
+            <img src="https://images.pexels.com/photos/8306528/pexels-photo-8306528.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Браслет Lumen" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="filter:grayscale(100%) contrast(1.05)"/>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black text-white py-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button class="text-xs font-bold tracking-wide uppercase w-full text-left">В корзину →</button>
+            </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div>
+              <p class="text-black/40 text-xs font-semibold uppercase tracking-wider mb-1">Браслеты</p>
+              <h3 class="text-black font-bold text-lg" style="letter-spacing:-0.05em">Браслет Lumen</h3>
+            </div>
+            <p class="text-black font-bold text-sm whitespace-nowrap">₽ 32 000</p>
+          </div>
+        </article>
+        <article class="product-card group flex-shrink-0 w-[260px] md:w-[320px] snap-start reveal" style="transition-delay:240ms">
+          <div class="relative aspect-square bg-white overflow-hidden mb-5">
+            <img src="https://images.pexels.com/photos/29502436/pexels-photo-29502436.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Чокер Noir" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="filter:grayscale(100%) contrast(1.05)"/>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black text-white py-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button class="text-xs font-bold tracking-wide uppercase w-full text-left">В корзину →</button>
+            </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div>
+              <p class="text-black/40 text-xs font-semibold uppercase tracking-wider mb-1">Ожерелья</p>
+              <h3 class="text-black font-bold text-lg" style="letter-spacing:-0.05em">Чокер Noir</h3>
+            </div>
+            <p class="text-black font-bold text-sm whitespace-nowrap">₽ 27 800</p>
+          </div>
+        </article>
+        <article class="product-card group flex-shrink-0 w-[260px] md:w-[320px] snap-start reveal" style="transition-delay:320ms">
+          <div class="relative aspect-square bg-white overflow-hidden mb-5">
+            <img src="https://images.pexels.com/photos/33080097/pexels-photo-33080097.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Кольцо Phantom" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="filter:grayscale(100%) contrast(1.05)"/>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black text-white py-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button class="text-xs font-bold tracking-wide uppercase w-full text-left">В корзину →</button>
+            </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div>
+              <p class="text-black/40 text-xs font-semibold uppercase tracking-wider mb-1">Кольца</p>
+              <h3 class="text-black font-bold text-lg" style="letter-spacing:-0.05em">Кольцо Phantom</h3>
+            </div>
+            <p class="text-black font-bold text-sm whitespace-nowrap">₽ 21 300</p>
+          </div>
+        </article>
+        <article class="product-card group flex-shrink-0 w-[260px] md:w-[320px] snap-start reveal" style="transition-delay:400ms">
+          <div class="relative aspect-square bg-white overflow-hidden mb-5">
+            <img src="https://images.pexels.com/photos/29502314/pexels-photo-29502314.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Серьга Stella" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="filter:grayscale(100%) contrast(1.05)"/>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black text-white py-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button class="text-xs font-bold tracking-wide uppercase w-full text-left">В корзину →</button>
+            </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div>
+              <p class="text-black/40 text-xs font-semibold uppercase tracking-wider mb-1">Серьги</p>
+              <h3 class="text-black font-bold text-lg" style="letter-spacing:-0.05em">Серьга Stella</h3>
+            </div>
+            <p class="text-black font-bold text-sm whitespace-nowrap">₽ 15 600</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dual Banner -->
+  <section id="коллекции" class="grid grid-cols-1 md:grid-cols-2 gap-1 bg-[#0a0a0a]">
+    <div class="relative h-[80vh] min-h-[600px] overflow-hidden grain group reveal-scale">
+      <img src="https://images.pexels.com/photos/15388978/pexels-photo-15388978.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" style="filter:grayscale(100%) contrast(1.1) brightness(0.95)"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 lg:p-16">
+        <p class="text-white/50 text-sm font-semibold tracking-[0.25em] uppercase mb-3">Белая коллекция</p>
+        <h3 class="text-white font-black leading-[0.9] mb-6" style="font-size:clamp(2rem,5vw,4rem);letter-spacing:-0.05em">ЧИСТАЯ<br>ЭЛЕГАНТНОСТЬ</h3>
+        <a href="#" class="inline-flex items-center gap-3 text-white font-bold text-sm uppercase tracking-wide border-b border-white/40 pb-1 hover:border-white transition-all duration-300">Смотреть →</a>
+      </div>
+    </div>
+    <div class="relative h-[80vh] min-h-[600px] overflow-hidden grain group reveal-scale">
+      <img src="https://images.pexels.com/photos/12258566/pexels-photo-12258566.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" style="filter:grayscale(100%) contrast(1.15) brightness(0.8)"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 lg:p-16">
+        <p class="text-white/50 text-sm font-semibold tracking-[0.25em] uppercase mb-3">Чёрная коллекция</p>
+        <h3 class="text-white font-black leading-[0.9] mb-6" style="font-size:clamp(2rem,5vw,4rem);letter-spacing:-0.05em">СИЛА<br>В ДЕТАЛЯХ</h3>
+        <a href="#" class="inline-flex items-center gap-3 text-white font-bold text-sm uppercase tracking-wide border-b border-white/40 pb-1 hover:border-white transition-all duration-300">Смотреть →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section id="категории" class="bg-[#0a0a0a] py-20 md:py-32 grain">
+    <div class="px-6 md:px-12 lg:px-20">
+      <div class="mb-12 md:mb-16 reveal">
+        <p class="text-white/40 text-sm font-semibold tracking-[0.25em] uppercase mb-3">Навигация</p>
+        <h2 class="text-white font-black leading-none" style="font-size:clamp(2.5rem,6vw,5rem);letter-spacing:-0.05em">ПОПУЛЯРНЫЕ<br><span class="text-stroke">КАТЕГОРИИ</span></h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <a href="#" class="group relative aspect-[4/5] overflow-hidden reveal" style="transition-delay:0ms">
+          <img src="https://images.pexels.com/photos/37601639/pexels-photo-37601639.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Серьги" class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" style="filter:grayscale(100%) contrast(1.1) brightness(0.85)"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent transition-opacity duration-500 group-hover:from-black/90"></div>
+          <div class="absolute top-5 left-5 text-white/30 font-black text-2xl">01</div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 md:p-7">
+            <p class="text-white/50 text-xs font-semibold uppercase tracking-wider mb-2">48 моделей</p>
+            <h3 class="text-white font-black mb-3" style="font-size:clamp(1.5rem,3vw,2.5rem);letter-spacing:-0.04em;line-height:0.9">СЕРЬГИ</h3>
+            <div class="flex items-center gap-2 text-white/60 text-xs font-bold uppercase tracking-wide overflow-hidden">
+              <span class="transition-transform duration-500 group-hover:translate-x-0 translate-x-[-120%]">Смотреть все</span>
+              <span class="transition-transform duration-500 group-hover:translate-x-0 translate-x-[-120%]">→</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="group relative aspect-[4/5] overflow-hidden reveal" style="transition-delay:100ms">
+          <img src="https://images.pexels.com/photos/7866487/pexels-photo-7866487.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ожерелья" class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" style="filter:grayscale(100%) contrast(1.1) brightness(0.85)"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent transition-opacity duration-500 group-hover:from-black/90"></div>
+          <div class="absolute top-5 left-5 text-white/30 font-black text-2xl">02</div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 md:p-7">
+            <p class="text-white/50 text-xs font-semibold uppercase tracking-wider mb-2">36 моделей</p>
+            <h3 class="text-white font-black mb-3" style="font-size:clamp(1.5rem,3vw,2.5rem);letter-spacing:-0.04em;line-height:0.9">ОЖЕРЕЛЬЯ</h3>
+            <div class="flex items-center gap-2 text-white/60 text-xs font-bold uppercase tracking-wide overflow-hidden">
+              <span class="transition-transform duration-500 group-hover:translate-x-0 translate-x-[-120%]">Смотреть все</span>
+              <span class="transition-transform duration-500 group-hover:translate-x-0 translate-x-[-120%]">→</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="group relative aspect-[4/5] overflow-hidden reveal" style="transition-delay:200ms">
+          <img src="https://images.pexels.com/photos/792760/pexels-photo-792760.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Кольца" class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" style="filter:grayscale(100%) contrast(1.1) brightness(0.85)"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent transition-opacity duration-500 group-hover:from-black/90"></div>
+          <div class="absolute top-5 left-5 text-white/30 font-black text-2xl">03</div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 md:p-7">
+            <p class="text-white/50 text-xs font-semibold uppercase tracking-wider mb-2">52 модели</p>
+            <h3 class="text-white font-black mb-3" style="font-size:clamp(1.5rem,3vw,2.5rem);letter-spacing:-0.04em;line-height:0.9">КОЛЬЦА</h3>
+            <div class="flex items-center gap-2 text-white/60 text-xs font-bold uppercase tracking-wide overflow-hidden">
+              <span class="transition-transform duration-500 group-hover:translate-x-0 translate-x-[-120%]">Смотреть все</span>
+              <span class="transition-transform duration-500 group-hover:translate-x-0 translate-x-[-120%]">→</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="group relative aspect-[4/5] overflow-hidden reveal" style="transition-delay:300ms">
+          <img src="https://images.pexels.com/photos/8766262/pexels-photo-8766262.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Браслеты" class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" style="filter:grayscale(100%) contrast(1.1) brightness(0.85)"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent transition-opacity duration-500 group-hover:from-black/90"></div>
+          <div class="absolute top-5 left-5 text-white/30 font-black text-2xl">04</div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 md:p-7">
+            <p class="text-white/50 text-xs font-semibold uppercase tracking-wider mb-2">29 моделей</p>
+            <h3 class="text-white font-black mb-3" style="font-size:clamp(1.5rem,3vw,2.5rem);letter-spacing:-0.04em;line-height:0.9">БРАСЛЕТЫ</h3>
+            <div class="flex items-center gap-2 text-white/60 text-xs font-bold uppercase tracking-wide overflow-hidden">
+              <span class="transition-transform duration-500 group-hover:translate-x-0 translate-x-[-120%]">Смотреть все</span>
+              <span class="transition-transform duration-500 group-hover:translate-x-0 translate-x-[-120%]">→</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section id="хиты-продаж" class="relative bg-[#f5f5f0] py-20 md:py-32">
+    <div class="px-6 md:px-12 lg:px-20">
+      <div class="flex items-end justify-between mb-12 md:mb-16 reveal">
+        <div>
+          <p class="text-black/40 text-sm font-semibold tracking-[0.25em] uppercase mb-3">Бестселлеры</p>
+          <h2 class="text-black font-black leading-none" style="font-size:clamp(2.5rem,6vw,5rem);letter-spacing:-0.05em">ХИТЫ ПРОДАЖ</h2>
+        </div>
+        <div class="hidden md:flex items-center gap-3">
+          <button onclick="scrollStrip('bestsellers',-1)" class="w-12 h-12 border border-black/15 flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300" aria-label="Назад">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button onclick="scrollStrip('bestsellers',1)" class="w-12 h-12 border border-black/15 flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300" aria-label="Вперёд">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="bestsellers" class="flex gap-6 overflow-x-auto scrollbar-hide -mx-6 px-6 pb-4 snap-x snap-mandatory">
+        <article class="product-card group flex-shrink-0 w-[260px] md:w-[320px] snap-start reveal" style="transition-delay:0ms">
+          <div class="relative aspect-square bg-white overflow-hidden mb-5">
+            <img src="https://images.pexels.com/photos/4166457/pexels-photo-4166457.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Кольцо Solis" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="filter:grayscale(100%) contrast(1.05)"/>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black text-white py-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button class="text-xs font-bold tracking-wide uppercase w-full text-left">В корзину →</button>
+            </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div>
+              <p class="text-black/40 text-xs font-semibold uppercase tracking-wider mb-1">Кольца</p>
+              <h3 class="text-black font-bold text-lg" style="letter-spacing:-0.05em">Кольцо Solis</h3>
+            </div>
+            <p class="text-black font-bold text-sm whitespace-nowrap">₽ 19 900</p>
+          </div>
+        </article>
+        <article class="product-card group flex-shrink-0 w-[260px] md:w-[320px] snap-start reveal" style="transition-delay:80ms">
+          <div class="relative aspect-square bg-white overflow-hidden mb-5">
+            <img src="https://images.pexels.com/photos/5370644/pexels-photo-5370644.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Серьга Droplet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="filter:grayscale(100%) contrast(1.05)"/>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black text-white py-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button class="text-xs font-bold tracking-wide uppercase w-full text-left">В корзину →</button>
+            </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div>
+              <p class="text-black/40 text-xs font-semibold uppercase tracking-wider mb-1">Серьги</p>
+              <h3 class="text-black font-bold text-lg" style="letter-spacing:-0.05em">Серьга Droplet</h3>
+            </div>
+            <p class="text-black font-bold text-sm whitespace-nowrap">₽ 14 200</p>
+          </div>
+        </article>
+        <article class="product-card group flex-shrink-0 w-[260px] md:w-[320px] snap-start reveal" style="transition-delay:160ms">
+          <div class="relative aspect-square bg-white overflow-hidden mb-5">
+            <img src="https://images.pexels.com/photos/29502321/pexels-photo-29502321.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Браслет Aura" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="filter:grayscale(100%) contrast(1.05)"/>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black text-white py-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button class="text-xs font-bold tracking-wide uppercase w-full text-left">В корзину →</button>
+            </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div>
+              <p class="text-black/40 text-xs font-semibold uppercase tracking-wider mb-1">Браслеты</p>
+              <h3 class="text-black font-bold text-lg" style="letter-spacing:-0.05em">Браслет Aura</h3>
+            </div>
+            <p class="text-black font-bold text-sm whitespace-nowrap">₽ 28 700</p>
+          </div>
+        </article>
+        <article class="product-card group flex-shrink-0 w-[260px] md:w-[320px] snap-start reveal" style="transition-delay:240ms">
+          <div class="relative aspect-square bg-white overflow-hidden mb-5">
+            <img src="https://images.pexels.com/photos/29502923/pexels-photo-29502923.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Ожерелье Cascade" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="filter:grayscale(100%) contrast(1.05)"/>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black text-white py-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button class="text-xs font-bold tracking-wide uppercase w-full text-left">В корзину →</button>
+            </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div>
+              <p class="text-black/40 text-xs font-semibold uppercase tracking-wider mb-1">Ожерелья</p>
+              <h3 class="text-black font-bold text-lg" style="letter-spacing:-0.05em">Ожерелье Cascade</h3>
+            </div>
+            <p class="text-black font-bold text-sm whitespace-nowrap">₽ 35 400</p>
+          </div>
+        </article>
+        <article class="product-card group flex-shrink-0 w-[260px] md:w-[320px] snap-start reveal" style="transition-delay:320ms">
+          <div class="relative aspect-square bg-white overflow-hidden mb-5">
+            <img src="https://images.pexels.com/photos/29502435/pexels-photo-29502435.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Серьга Bloom" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="filter:grayscale(100%) contrast(1.05)"/>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black text-white py-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button class="text-xs font-bold tracking-wide uppercase w-full text-left">В корзину →</button>
+            </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div>
+              <p class="text-black/40 text-xs font-semibold uppercase tracking-wider mb-1">Серьги</p>
+              <h3 class="text-black font-bold text-lg" style="letter-spacing:-0.05em">Серьга Bloom</h3>
+            </div>
+            <p class="text-black font-bold text-sm whitespace-nowrap">₽ 16 800</p>
+          </div>
+        </article>
+        <article class="product-card group flex-shrink-0 w-[260px] md:w-[320px] snap-start reveal" style="transition-delay:400ms">
+          <div class="relative aspect-square bg-white overflow-hidden mb-5">
+            <img src="https://images.pexels.com/photos/29502496/pexels-photo-29502496.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Браслет Coil" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="filter:grayscale(100%) contrast(1.05)"/>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black text-white py-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button class="text-xs font-bold tracking-wide uppercase w-full text-left">В корзину →</button>
+            </div>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <div>
+              <p class="text-black/40 text-xs font-semibold uppercase tracking-wider mb-1">Браслеты</p>
+              <h3 class="text-black font-bold text-lg" style="letter-spacing:-0.05em">Браслет Coil</h3>
+            </div>
+            <p class="text-black font-bold text-sm whitespace-nowrap">₽ 22 100</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="контакты" class="bg-black text-white pt-20 md:pt-32 pb-10 grain">
+    <div class="px-6 md:px-12 lg:px-20">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-20 mb-16 md:mb-24">
+        <div>
+          <h2 class="font-black leading-none mb-6" style="font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.05em">EXCELLENT<br>JEWELLERY</h2>
+          <p class="text-white/50 text-base font-medium leading-snug max-w-xs">Ювелирные украшения высшего качества. Созданы для тех, кто ценит детали.</p>
+        </div>
+        <div>
+          <p class="text-white/30 text-sm font-semibold tracking-[0.25em] uppercase mb-6">Навигация</p>
+          <nav class="flex flex-col gap-4">
+            <a href="#коллекции" class="text-white/80 font-bold text-lg hover:text-white transition-colors duration-300 w-fit">Коллекции</a>
+            <a href="#новое-поступление" class="text-white/80 font-bold text-lg hover:text-white transition-colors duration-300 w-fit">Новое поступление</a>
+            <a href="#категории" class="text-white/80 font-bold text-lg hover:text-white transition-colors duration-300 w-fit">Категории</a>
+            <a href="#контакты" class="text-white/80 font-bold text-lg hover:text-white transition-colors duration-300 w-fit">Контакты</a>
+          </nav>
+        </div>
+        <div>
+          <p class="text-white/30 text-sm font-semibold tracking-[0.25em] uppercase mb-6">Контакты</p>
+          <div class="flex flex-col gap-5">
+            <a href="tel:+74951234567" class="flex items-center gap-4 text-white/80 hover:text-white transition-colors group">
+              <span class="w-11 h-11 border border-white/15 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <span class="font-bold text-base">+7 495 123 45 67</span>
+            </a>
+            <a href="https://wa.me/74951234567" class="flex items-center gap-4 text-white/80 hover:text-white transition-colors group">
+              <span class="w-11 h-11 border border-white/15 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+              </span>
+              <span class="font-bold text-base">WhatsApp</span>
+            </a>
+            <a href="mailto:info@excellent-jewellery.ru" class="flex items-center gap-4 text-white/80 hover:text-white transition-colors group">
+              <span class="w-11 h-11 border border-white/15 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </span>
+              <span class="font-bold text-base">info@excellent-jewellery.ru</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <p class="text-white/40 text-sm font-semibold tracking-wide">2026 © EXCELLENT JEWELLERY. Все права защищены.</p>
+        <div class="flex items-center gap-6">
+          <span class="text-white/30 text-xs font-semibold uppercase tracking-wider">Дизайн уровня Awwwards</span>
+          <a href="#top" class="w-11 h-11 border border-white/15 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300" aria-label="Наверх">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        header.classList.remove('bg-transparent', 'py-6');
+        header.classList.add('bg-[#0a0a0a]/90', 'backdrop-blur-md', 'py-3', 'border-b', 'border-white/5');
+      } else {
+        header.classList.add('bg-transparent', 'py-6');
+        header.classList.remove('bg-[#0a0a0a]/90', 'backdrop-blur-md', 'py-3', 'border-b', 'border-white/5');
+      }
+    });
+
+    // Mobile menu
+    const menu = document.getElementById('mobile-menu');
+    document.getElementById('menu-open').addEventListener('click', () => {
+      menu.classList.remove('translate-x-full');
+    });
+    document.getElementById('menu-close').addEventListener('click', () => {
+      menu.classList.add('translate-x-full');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => menu.classList.add('translate-x-full'));
+    });
+
+    // Product strip scroll
+    function scrollStrip(id, dir) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const card = el.querySelector('.product-card');
+      const width = card ? card.getBoundingClientRect().width + 24 : 300;
+      el.scrollBy({ left: dir * width, behavior: 'smooth' });
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-scale').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
